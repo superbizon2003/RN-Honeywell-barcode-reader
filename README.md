@@ -1,44 +1,48 @@
-# React Native Honeywell Barcode Reader for todoletos QR
+# React Native Honeywell Barcode Reader for todoboletos QR APP
 
-This package works with Honeywell devices that have an integrated barcode scanner, like the Honeywell EDA50K (tested).
+This package works with Honeywell devices that have an integrated barcode scanner, like the Honeywell EDA50K and EDA51 (tested).
 
-Actually, I custom from https://github.com/Volst/react-native-honeywell-scanner but fix cannot remove event listener (even you close the reader). And if you don't remove, the event will fire twice, triple... more and more times when you call `addListener` until you kill the app.
+This version fixed the event will fire twice.
 
-The bug at here is you can not remove event listener by call `DeviceEventEmitter.removeListener(eventName, handler)` since it doesn't have this method. Follow here: https://stackoverflow.com/questions/36886628/how-do-you-remove-a-listener-from-react-natives-eventemitter-instance
+This version is a fork from https://github.com/duytq94/react-native-honeywell-barcode-reader
 
 ## Installation
 
 ```
-npm i react-native-honeywell-barcode-reader
+npm i honeywell-todoboletos-qr
 ```
 
 ## Link automatically:
 
 ```
-react-native link react-native-honeywell-barcode-reader
+react-native link honeywell-todoboletos-qr
 ```
 
 ## Link manually (recommend):
 
 1. In `app\build.gradle` add
+
 ```
-compile project(':react-native-honeywell-barcode-reader')
+compile project(':honeywell-todoboletos-qr')
 ```
 
 2. In `settings.gradle` add
 
 ```
-include ':react-native-honeywell-barcode-reader'
-project(':react-native-honeywell-barcode-reader').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-honeywell-barcode-reader/android')
+include ':honeywell-todoboletos-qr'
+project(':honeywell-todoboletos-qr').projectDir = new File(rootProject.projectDir, '../node_modules/honeywell-todoboletos-qr/android')
 ```
 
 3. In `MainApplication.java`
 
 Add this line to import package
+
 ```
 import com.duytq94.HoneywellBarcodeReader.HoneywellBarcodeReaderPackage;
 ```
+
 and add this line to getPackages()
+
 ```
 new HoneywellBarcodeReaderPackage()
 ```
@@ -48,28 +52,28 @@ new HoneywellBarcodeReaderPackage()
 First you'll want to check whether the device is a Honeywell scanner:
 
 ```js
-import HoneywellBarcodeReader from 'react-native-honeywell-barcode-reader';
+import HoneywellBarcodeReader from "honeywell-todoboletos-qr";
 
-HoneywellBarcodeReader.isCompatible // true or false
+HoneywellBarcodeReader.isCompatible; // true or false
 ```
 
 The barcode reader needs to be "claimed" by your application; meanwhile no other application can use it. You can do that like this:
 
 ```js
 HoneywellBarcodeReader.startReader().then((claimed) => {
-    console.log(claimed ? 'Barcode reader is claimed' : 'Barcode reader is busy');
+  console.log(claimed ? "Barcode reader is claimed" : "Barcode reader is busy");
 });
 ```
 
 To get events from the barcode scanner:
 
 ```js
-HoneywellBarcodeReader.onBarcodeReadSuccess(event => {
-    console.log('Received data', event);
+HoneywellBarcodeReader.onBarcodeReadSuccess((event) => {
+  console.log("Received data", event);
 });
 
 HoneywellBarcodeReader.onBarcodeReadFail(() => {
-    console.log('Barcode read failed');
+  console.log("Barcode read failed");
 });
 ```
 
@@ -77,7 +81,7 @@ To free the claim and stop the reader, also freeing up resources:
 
 ```js
 HoneywellBarcodeReader.stopReader().then(() => {
-    console.log('Freedom!');
+  console.log("Freedom!");
 });
 ```
 

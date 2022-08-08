@@ -1,7 +1,7 @@
 {
-  "name": "RN-HBR-todoboletos-QR",
+  "name": "honeywell-todoboletos-qr",
   "description": "A barcode reader for Honeywell handheld devices like Honeywell EDA50K (tested)",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "main": "index.js",
   "author": "Jorge Pastor <jorgeluis_pastor@hotmail.com>, Karen Sanchez <karen29_sanchez@yahoo.com.mx>",
   "repository": "https://github.com/jolupara25/RN-HBR-todoboletos-QR",
@@ -9,6 +9,7 @@
     "honeywell",
     "barcode",
     "reader"
+    ,"todoboletos"
   ],
   "engines": {
     "node": ">=4.0"
