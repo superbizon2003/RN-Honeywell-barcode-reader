@@ -1,4 +1,4 @@
-# React Native Honeywell Barcode Reader
+# React Native Honeywell Barcode Reader for todoletos QR
 
 This package works with Honeywell devices that have an integrated barcode scanner, like the Honeywell EDA50K (tested).
 
