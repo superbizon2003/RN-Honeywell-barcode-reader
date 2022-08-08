@@ -1,10 +1,10 @@
 {
-  "name": "react-native-honeywell-barcode-reader",
+  "name": "RN-HBR-todoboletos-QR",
   "description": "A barcode reader for Honeywell handheld devices like Honeywell EDA50K (tested)",
-  "version": "1.0.6",
+  "version": "1.0.0",
   "main": "index.js",
-  "author": "Duy Tran <tranquangduy7994@gmail.com>",
-  "repository": "duytq94/react-native-honeywell-barcode-reader",
+  "author": "Jorge Pastor <jorgeluis_pastor@hotmail.com>, Karen Sanchez <karen29_sanchez@yahoo.com.mx>",
+  "repository": "https://github.com/jolupara25/RN-HBR-todoboletos-QR",
   "keywords": [
     "honeywell",
     "barcode",
