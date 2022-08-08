@@ -1,6 +1,6 @@
-const ReactNative = require('react-native')
-const { NativeModules, DeviceEventEmitter } = ReactNative
-const HoneywellBarcodeReader = NativeModules.HoneywellBarcodeReader || {} // Hacky fallback for iOS
+const ReactNative = require('react-native');
+const {NativeModules, DeviceEventEmitter, NativeEventEmitter} = ReactNative;
+const HoneywellBarcodeReader = NativeModules.HoneywellBarcodeReader || {}; // Hacky fallback for iOS
 
 /**
  * Listen for available events
@@ -8,16 +8,28 @@ const HoneywellBarcodeReader = NativeModules.HoneywellBarcodeReader || {} // Hac
  * @param  {Function} handler Event handler
  */
 
-var subscriptionBarcodeReadSuccess = null
-var subscriptionBarcodeReadFail = null
+const barcodeReaderEmitter = new NativeEventEmitter();
 
-HoneywellBarcodeReader.onBarcodeReadSuccess = (handler) => {
-    subscriptionBarcodeReadSuccess = DeviceEventEmitter.addListener(HoneywellBarcodeReader.BARCODE_READ_SUCCESS, handler)
-}
+var subscriptionBarcodeReadSuccess = null;
+var subscriptionBarcodeReadFail = null;
 
-HoneywellBarcodeReader.onBarcodeReadFail = (handler) => {
-    subscriptionBarcodeReadFail = DeviceEventEmitter.addListener(HoneywellBarcodeReader.BARCODE_READ_FAIL, handler)
-}
+HoneywellBarcodeReader.onBarcodeReadSuccess = handler => {
+  subscriptionBarcodeReadSuccess?.remove();
+  subscriptionBarcodeReadSuccess = null;
+  subscriptionBarcodeReadSuccess = barcodeReaderEmitter.addListener(
+    HoneywellBarcodeReader.BARCODE_READ_SUCCESS,
+    handler,
+  );
+};
+
+HoneywellBarcodeReader.onBarcodeReadFail = handler => {
+  subscriptionBarcodeReadFail?.remove();
+  subscriptionBarcodeReadFail = null;
+  subscriptionBarcodeReadFail = barcodeReaderEmitter.addListener(
+    HoneywellBarcodeReader.BARCODE_READ_FAIL,
+    handler,
+  );
+};
 
 /**
  * Stop listening for event
@@ -25,10 +37,10 @@ HoneywellBarcodeReader.onBarcodeReadFail = (handler) => {
  * @param  {Function} handler Event handler
  */
 HoneywellBarcodeReader.offBarcodeReadSuccess = () => {
-    subscriptionBarcodeReadSuccess.remove()
-}
+  subscriptionBarcodeReadSuccess?.remove();
+};
 HoneywellBarcodeReader.offBarcodeReadFail = () => {
-    subscriptionBarcodeReadFail.remove()
-}
+  subscriptionBarcodeReadFail?.remove();
+};
 
-module.exports = HoneywellBarcodeReader
+module.exports = HoneywellBarcodeReader;
