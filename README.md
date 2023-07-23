@@ -9,13 +9,13 @@ This version is a fork from https://github.com/duytq94/react-native-honeywell-ba
 ## Installation
 
 ```
-npm i @bishosba/honeywell-barcode-reader
+npm i bishosba_honeywell-barcode-reader
 ```
 
 ## Link automatically:
 
 ```
-react-native link @bishosba/honeywell-barcode-reader
+react-native link bishosba_honeywell-barcode-reader
 ```
 
 ## Link manually (recommend):
@@ -23,14 +23,14 @@ react-native link @bishosba/honeywell-barcode-reader
 1. In `app\build.gradle` add
 
 ```
-implementation project(':@bishosba/honeywell-barcode-reader')
+implementation project(':bishosba_honeywell-barcode-reader')
 ```
 
 2. In `settings.gradle` add
 
 ```
-include ':@bishosba/honeywell-barcode-reader'
-project(':@bishosba/honeywell-barcode-reader').projectDir = new File(rootProject.projectDir, '../node_modules/@bishosba/honeywell-barcode-reader/android')
+include ':bishosba_honeywell-barcode-reader'
+project(':bishosba_honeywell-barcode-reader').projectDir = new File(rootProject.projectDir, '../node_modules/bishosba_honeywell-barcode-reader/android')
 ```
 
 3. In `MainApplication.java`
@@ -52,7 +52,7 @@ new HoneywellBarcodeReaderPackage()
 First you'll want to check whether the device is a Honeywell scanner:
 
 ```js
-import HoneywellBarcodeReader from "@bishosba/honeywell-barcode-reader";
+import HoneywellBarcodeReader from "bishosba_honeywell-barcode-reader";
 
 HoneywellBarcodeReader.isCompatible; // true or false
 ```
