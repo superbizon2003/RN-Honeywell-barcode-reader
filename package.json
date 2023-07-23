@@ -1,23 +1,31 @@
 {
-  "name": "honeywell-todoboletos-qr",
+  "name": "@bishosba/honeywell-barcode-reader",
   "description": "A barcode reader for Honeywell handheld devices like Honeywell EDA50K (tested)",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "main": "index.js",
-  "author": "Jorge Pastor <jorgeluis_pastor@hotmail.com>, Karen Sanchez <karen29_sanchez@yahoo.com.mx>",
-  "repository": "https://github.com/jolupara25/RN-HBR-todoboletos-QR",
+  "author": "Beshir Saeed <beshir-saeed@live.com>",
+  "repository": "https://github.com/BishoSBA/RN-Honeywell-barcode-reader",
   "keywords": [
     "honeywell",
     "barcode",
-    "reader"
-    ,"todoboletos"
+    "reader",
+    "scanner"
   ],
   "engines": {
-    "node": ">=4.0"
+    "node": ">=16.0"
   },
+  "types": "index.d.ts",
   "files": [
     "android",
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
-  "license": "ISC",
-  "private": false
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
+
 }

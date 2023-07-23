@@ -9,13 +9,13 @@ This version is a fork from https://github.com/duytq94/react-native-honeywell-ba
 ## Installation
 
 ```
-npm i honeywell-todoboletos-qr
+npm i @bishosba/honeywell-barcode-reader
 ```
 
 ## Link automatically:
 
 ```
-react-native link honeywell-todoboletos-qr
+react-native link @bishosba/honeywell-barcode-reader
 ```
 
 ## Link manually (recommend):
@@ -23,14 +23,14 @@ react-native link honeywell-todoboletos-qr
 1. In `app\build.gradle` add
 
 ```
-compile project(':honeywell-todoboletos-qr')
+implementation project(':@bishosba/honeywell-barcode-reader')
 ```
 
 2. In `settings.gradle` add
 
 ```
-include ':honeywell-todoboletos-qr'
-project(':honeywell-todoboletos-qr').projectDir = new File(rootProject.projectDir, '../node_modules/honeywell-todoboletos-qr/android')
+include ':@bishosba/honeywell-barcode-reader'
+project(':@bishosba/honeywell-barcode-reader').projectDir = new File(rootProject.projectDir, '../node_modules/@bishosba/honeywell-barcode-reader/android')
 ```
 
 3. In `MainApplication.java`
@@ -52,7 +52,7 @@ new HoneywellBarcodeReaderPackage()
 First you'll want to check whether the device is a Honeywell scanner:
 
 ```js
-import HoneywellBarcodeReader from "honeywell-todoboletos-qr";
+import HoneywellBarcodeReader from "@bishosba/honeywell-barcode-reader";
 
 HoneywellBarcodeReader.isCompatible; // true or false
 ```
