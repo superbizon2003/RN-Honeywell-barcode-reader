@@ -95,6 +95,10 @@ public class HoneywellBarcodeReaderModule extends ReactContextBaseJavaModule imp
                 if(reader != null){
                     reader.addBarcodeListener(HoneywellBarcodeReaderModule.this);
                     try {
+                        reader.setProperty(reader.PROPERTY_EAN_8_ENABLED, true);
+                        reader.setProperty(reader.PROPERTY_EAN_8_CHECK_DIGIT_TRANSMIT_ENABLED, true);
+                        reader.setProperty(reader.PROPERTY_EAN_13_ENABLED, true);
+                        reader.setProperty(reader.PROPERTY_EAN_13_CHECK_DIGIT_TRANSMIT_ENABLED, true);
                         reader.claim();
                         promise.resolve(true);
                     } catch (ScannerUnavailableException e) {
