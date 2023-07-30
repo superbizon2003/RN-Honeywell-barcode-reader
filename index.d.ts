@@ -9,6 +9,7 @@ interface HoneywellBarcodeReaderModule {
   isCompatible: boolean;
   startReader: () => Promise<boolean>;
   stopReader: () => Promise<boolean>;
+  setReaderProperty: (propName: string, value: string | number | boolean) => void; 
 }
 
 declare const HoneywellBarcodeReader: HoneywellBarcodeReaderModule;
