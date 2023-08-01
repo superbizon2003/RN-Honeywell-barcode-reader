@@ -127,6 +127,7 @@ public class HoneywellBarcodeReaderModule extends ReactContextBaseJavaModule imp
     @ReactMethod
     public void stopReader(Promise promise) {
         if (reader != null) {
+            reader.release();
             reader.close();
         }
         if (manager != null) {
