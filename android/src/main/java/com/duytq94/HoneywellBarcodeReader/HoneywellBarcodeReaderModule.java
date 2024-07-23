@@ -93,8 +93,8 @@ public class HoneywellBarcodeReaderModule extends ReactContextBaseJavaModule imp
                 manager = aidcManager;
                 reader = manager.createBarcodeReader();
                 if(reader != null){
-                    reader.addBarcodeListener(HoneywellBarcodeReaderModule.this);
                     try {
+                        reader.addBarcodeListener(HoneywellBarcodeReaderModule.this);
                         HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_EAN_13_ENABLED, true);
                         HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_EAN_8_CHECK_DIGIT_TRANSMIT_ENABLED, true);
                         
@@ -127,11 +127,19 @@ public class HoneywellBarcodeReaderModule extends ReactContextBaseJavaModule imp
     @ReactMethod
     public void stopReader(Promise promise) {
         if (reader != null) {
-            reader.release();
-            reader.close();
+            try {
+                reader.release();
+                reader.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         if (manager != null) {
-            manager.close();
+            try {
+                manager.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         promise.resolve(null);
     }

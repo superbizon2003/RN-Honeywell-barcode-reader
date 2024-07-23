@@ -1,7 +1,7 @@
 {
   "name": "bishosba_honeywell-barcode-reader",
-  "description": "A barcode reader for Honeywell handheld devices like Honeywell EDA50K (tested)",
-  "version": "1.0.18",
+  "description": "A barcode reader for Honeywell handheld devices like Honeywell EDA52 (tested)",
+  "version": "1.0.19",
   "main": "index.js",
   "author": "Beshir Saeed <beshir-saeed@live.com>",
   "repository": "https://github.com/BishoSBA/RN-Honeywell-barcode-reader",
@@ -27,5 +27,4 @@
   "devDependencies": {
     "typescript": "^4.4.3"
   }
-
 }
