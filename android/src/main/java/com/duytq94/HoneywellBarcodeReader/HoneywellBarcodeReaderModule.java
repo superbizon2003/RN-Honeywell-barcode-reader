@@ -95,23 +95,24 @@ public class HoneywellBarcodeReaderModule extends ReactContextBaseJavaModule imp
                 if(reader != null){
                     try {
                         reader.addBarcodeListener(HoneywellBarcodeReaderModule.this);
-                        HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_EAN_13_ENABLED, true);
-                        HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_EAN_8_CHECK_DIGIT_TRANSMIT_ENABLED, true);
+                        // если нужно, используй их как setReaderPropretyBool именно BOOL
+                        // HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_EAN_13_ENABLED, true);
+                        // HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_EAN_8_CHECK_DIGIT_TRANSMIT_ENABLED, true);
                         
-                        HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_EAN_13_ENABLED, true);
-                        HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_EAN_13_CHECK_DIGIT_TRANSMIT_ENABLED, true);
+                        // HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_EAN_13_ENABLED, true);
+                        // HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_EAN_13_CHECK_DIGIT_TRANSMIT_ENABLED, true);
                         
-                        HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_UPC_A_ENABLE, true);
-                        HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_UPC_A_CHECK_DIGIT_TRANSMIT_ENABLED, true);
+                        // HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_UPC_A_ENABLE, true);
+                        // HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_UPC_A_CHECK_DIGIT_TRANSMIT_ENABLED, true);
                         
-                        HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_UPC_E_ENABLED, true);
-                        HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_UPC_E_CHECK_DIGIT_TRANSMIT_ENABLED, true);
+                        // HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_UPC_E_ENABLED, true);
+                        // HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_UPC_E_CHECK_DIGIT_TRANSMIT_ENABLED, true);
 
-                        HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_CODABAR_ENABLED, true);
-                        HoneywellBarcodeReaderModule.this.setReaderProprety(reader.CODABAR_CHECK_DIGIT_MODE_CHECK, true);
+                        // HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_CODABAR_ENABLED, true);
+                        // HoneywellBarcodeReaderModule.this.setReaderProprety(reader.CODABAR_CHECK_DIGIT_MODE_CHECK, true);
                         
-                        HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_INTERLEAVED_25_ENABLED, true);
-                        HoneywellBarcodeReaderModule.this.setReaderProprety(reader.INTERLEAVED_25_CHECK_DIGIT_MODE_CHECK, true);
+                        // HoneywellBarcodeReaderModule.this.setReaderProprety(reader.PROPERTY_INTERLEAVED_25_ENABLED, true);
+                        // HoneywellBarcodeReaderModule.this.setReaderProprety(reader.INTERLEAVED_25_CHECK_DIGIT_MODE_CHECK, true);
                         
                         reader.claim();
                         promise.resolve(true);
@@ -145,18 +146,30 @@ public class HoneywellBarcodeReaderModule extends ReactContextBaseJavaModule imp
     }
 
 @ReactMethod
-public void setReaderProprety(String propName, Object value) {
-    try {
-        if (value instanceof Boolean) {
-            reader.setProperty(propName, (Boolean) value);
-        } else if (value instanceof Integer) {
-            reader.setProperty(propName, (Integer) value);
-        } else if (value instanceof String) {
-            reader.setProperty(propName, (String) value);
+public void setReaderPropretyBool(String propName, boolean value) {
+        try{
+            reader.setProperty(propName , value);
+        }catch(Exception e){
+
         }
-    } catch (Exception e) {
-        // обработка ошибки
-    }
+}
+
+@ReactMethod
+public void setReaderPropretyInt(String propName, int value) {
+        try{
+            reader.setProperty(propName , value);
+        }catch(Exception e){
+
+        }
+}
+
+@ReactMethod
+public void setReaderPropretyString(String propName, String value) {
+        try{
+            reader.setProperty(propName , value);
+        }catch(Exception e){
+
+        }
 }
 
     private boolean isCompatible() {
