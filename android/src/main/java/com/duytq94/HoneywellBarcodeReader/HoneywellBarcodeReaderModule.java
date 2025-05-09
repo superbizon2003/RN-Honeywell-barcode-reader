@@ -147,7 +147,7 @@ public class HoneywellBarcodeReaderModule extends ReactContextBaseJavaModule imp
     @ReactMethod
     public void setReaderProprety(String propName, int value)  {
         try{
-            HoneywellBarcodeReaderModule.this.setReaderProprety(propName , value);
+            reader.setProperty(propName , value);
         }catch(Exception e){
 
         }
