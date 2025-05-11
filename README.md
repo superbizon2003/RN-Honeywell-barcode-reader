@@ -1,3 +1,7 @@
+# Это форк проекта https://github.com/BishoSBA/RN-Honeywell-barcode-reader
+
+Проверил на Expo 53, получилось заставить работать на устройстве Honeywell EDA50K
+
 # React Native Honeywell Barcode Reader
 
 This package works with Honeywell devices that have an integrated barcode scanner, like the Honeywell EDA50K and EDA51 (tested).
@@ -9,7 +13,7 @@ This version is a fork from https://github.com/duytq94/react-native-honeywell-ba
 ## Installation
 
 ```
-npm i bishosba_honeywell-barcode-reader
+npm install superbizon2003/RN-Honeywell-barcode-reader#main
 ```
 
 ## Link automatically:
